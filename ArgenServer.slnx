@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="Argen.Common/Argen.Common.csproj" />
+  <Project Path="Argen.Demo/Argen.Demo.csproj" Id="e5c929af-4846-4940-8572-ed26c163d68a" />
   <Project Path="Argen.Server/Argen.Server.csproj" />
 </Solution>
