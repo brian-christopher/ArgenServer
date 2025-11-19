@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Argen.Common/Argen.Common.csproj" />
+  <Project Path="Argen.Server/Argen.Server.csproj" />
+</Solution>
