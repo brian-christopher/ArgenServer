@@ -1,9 +1,26 @@
-﻿namespace Argen.Server;
+﻿using Argen.Server.Game;
+using Argen.Server.Services;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using SuperSocket.WebSocket.Server;
 
-class Program
+namespace Argen.Server;
+
+static class Program
 {
-    static void Main(string[] args)
+    private static void Configure(HostBuilderContext context, IServiceCollection services)
     {
-        Console.WriteLine("Hello, World!");
+        services.AddSingleton<Dispatcher>();
+        services.AddSingleton<World>();
+        services.AddHostedService<GameLoopService>();
+    }
+    
+    private static async Task Main(string[] args)
+    {
+        var host = WebSocketHostBuilder.Create()
+            .ConfigureServices(Configure)
+            .Build();
+        
+        await host.RunAsync();
     }
 }

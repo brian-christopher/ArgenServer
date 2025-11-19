@@ -1,5 +1,6 @@
 ﻿namespace Argen.Common;
 
-public class Class1
+public enum Opcode
 {
+
 }

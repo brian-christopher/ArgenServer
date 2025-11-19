@@ -1,6 +1,5 @@
 ﻿namespace Argen.Server.Network;
 
-public class GameSessionManager
-{
-    
+public sealed class NetworkProtocol
+{ 
 }

@@ -1,6 +1,8 @@
-﻿namespace Argen.Server.Network;
+﻿using SuperSocket.WebSocket.Server;
 
-public class GameSession
+namespace Argen.Server.Network;
+
+public class GameSession : WebSocketSession
 {
-    
+
 }
