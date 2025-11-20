@@ -1,8 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Argen.Common;
+using Argen.Common.Events;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Argen.Demo;
 
@@ -26,9 +28,6 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
-
-        base.Initialize();
         _wrapper.OnConnected += OnConnected;
         _wrapper.OnDisconnected += OnDisconnected;
         _wrapper.OnDataReceived += OnDataReceived;
@@ -40,6 +39,8 @@ public class Game1 : Game
 
     private void OnDataReceived(string obj)
     {
+        var response = JsonSerializer.Deserialize<Message>(obj);
+        var @event = response.DeserializePayload<CharacterSpawnedEvent>(); 
     }
 
     private void OnDisconnected()
