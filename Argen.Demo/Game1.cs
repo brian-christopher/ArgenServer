@@ -34,6 +34,8 @@ public class Game1 : Game
         _wrapper.OnDataReceived += OnDataReceived;
 
         _wrapper.ConnectToHost("127.0.0.1", 7666);
+
+        _wrapper.SendData("Hello from client");
     }
 
     private void OnDataReceived(string obj)
